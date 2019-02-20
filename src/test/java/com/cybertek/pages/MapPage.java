@@ -28,9 +28,7 @@ public class MapPage extends NavigationMenu {
     public List<WebElement> allRooms;
 
     public WebElement room (String roomName){
-       // String xpath = "";
         return Driver.getDriver().findElement(By.xpath(roomName));
-
     }
 
 }

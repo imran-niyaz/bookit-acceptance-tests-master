@@ -20,14 +20,15 @@ Feature: campus locations
     Then location should be "il"
 
 
-    @wip
-  Scenario Outline: verify campus names  <email>
+  Scenario Outline: Verify campus names <email>
     Given user on the login page
     When user logs in using "<email>" and "<password>"
     Then location should be "<campus>"
 
     Examples:
       | email                         | password          | campus     |
+      | fbawmeb7@studiopress.com      | sherilyngohn      | il         |
+      | ucharlot7y@nbcnews.com        | archibaldmelloy   | light-side |
       | sweeklybh@spotify.com         | bartletcarlin     | il         |
       | teacherva4@gmail.com          | markwohlberg      | light-side |
       | crundall8e@discuz.net         | eloisamaccauley   | dark-side  |

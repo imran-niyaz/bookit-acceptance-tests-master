@@ -12,7 +12,7 @@ Feature: Home page
   Scenario: login as team lead
     When user logs in as a team lead
     Then homepage should be displayed
-   And the title should be correct
+#    And the title should be correct
 
   @member
   Scenario: login as team member
@@ -23,3 +23,13 @@ Feature: Home page
   Scenario: login as teacher
     When user logs in as a teacher
     Then homepage should be displayed
+
+  Scenario Outline: login as different members
+    When user logs in as a <type>
+    Then homepage should be displayed
+
+    Examples:
+      | type        |
+      | team member |
+      | team lead   |
+      | teacher     |

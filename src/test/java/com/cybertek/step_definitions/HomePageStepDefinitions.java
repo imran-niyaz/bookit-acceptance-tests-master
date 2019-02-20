@@ -15,19 +15,18 @@ public class HomePageStepDefinitions {
 
 // OPTION + ENTER       MAC
 // ALT + ENTER       WINDOWS
+@When("user logs in as a team lead")
+public void user_logs_in_as_a_team_lead() {
+    System.out.println("I am logging in");
+    System.out.println("email: " + ConfigurationReader.getProperty("leader_email"));
+    System.out.println("password: " + ConfigurationReader.getProperty("leader_password"));
 
-    @When("user logs in as a team lead")
-    public void user_logs_in_as_a_team_lead() {
-        System.out.println("I am logging in");
-        System.out.println("email: " + ConfigurationReader.getProperty("leader_email"));
-        System.out.println("password: " + ConfigurationReader.getProperty("leader_password"));
+    SignInPage signInPage = new SignInPage();
+    signInPage.email.sendKeys(ConfigurationReader.getProperty("leader_email"));
+    signInPage.password.sendKeys(ConfigurationReader.getProperty("leader_password"));
+    signInPage.signIn.click();
 
-        SignInPage signInPage = new SignInPage();
-        signInPage.email.sendKeys(ConfigurationReader.getProperty("leader_email"));
-        signInPage.password.sendKeys(ConfigurationReader.getProperty("leader_password"));
-        signInPage.signIn.click();
-
-    }
+}
 
     @Given("user on the login page")
     public void user_on_the_login_page() {
@@ -88,6 +87,7 @@ public class HomePageStepDefinitions {
         signInPage.signIn.click();
 
     }
+
 
 
 }

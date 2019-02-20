@@ -1,3 +1,4 @@
+
 Feature: Map page details
 
   Scenario: Light side rooms - ping pong
@@ -14,17 +15,18 @@ Feature: Map page details
       | yale      |
       | princeton |
 
-# shortcut to format file in intellij
-# CMD+OPTION+L  mac
-# CMTR+ALT+L    win
 
-  Scenario: Team member test
+  Scenario: Team members test
     Given user on the login page
     And user logs in using "ucharlot7y@nbcnews.com" and "archibaldmelloy"
     When the user goes to the "my team" page
     Then following team members should be displayed:
       | Archibald |
-      | Durant    |
-      | Lorette   |
       | Leonard   |
+      | Lorette   |
+      | Durant    |
 
+# shortcut to format file in intellij
+# CMD+OPTION+L  mac
+# CMTR+ALT+L    win
+  # Kasim go

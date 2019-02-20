@@ -20,7 +20,7 @@ public class MapDetailsStepDefinitions {
         // and returning it as a list of string using the utility method
         List<String> allRooms = BrowserUtils.getElementsText(mapPage.allRooms);
         // verify that list contains the expected room name
-        Assert.assertTrue("Room was not found: "+roomName, allRooms.contains(roomName));
+        Assert.assertTrue("Room was not found: " + roomName, allRooms.contains(roomName));
 
     }
 
@@ -32,11 +32,11 @@ public class MapDetailsStepDefinitions {
     }
 
 
-
     @When("the user goes to the {string} page")
     public void the_user_goes_to_the_page(String page) {
         MapPage mapPage = new MapPage();
-        switch (page){
+        // TODO add my schedule and general schedule
+        switch (page) {
             case "map":
                 mapPage.map.click();
                 break;
@@ -49,27 +49,22 @@ public class MapDetailsStepDefinitions {
             case "my team":
                 mapPage.goToTeam();
                 break;
-
         }
+
     }
 
     @Then("following team members should be displayed:")
     public void following_team_members_should_be_displayed(List<String> members) {
         System.out.println(members);
-
-        // get the list of all members in a string list
+// get the list of all the members in a string list
         MyTeamPage myTeam = new MyTeamPage();
+
         List<String> actualMembers = BrowserUtils.getElementsText(myTeam.allNames);
 
-        // verify that all entries in the members list exist in the actua;Members list
-//        Collections.sort(members);
-//        Collections.sort(actualMembers);
-        Assert.assertEquals(members.size(),actualMembers.size());
+        Assert.assertEquals(members.size(), actualMembers.size());
         Assert.assertTrue(members.containsAll(actualMembers));
 
-
     }
-
 
 
 }

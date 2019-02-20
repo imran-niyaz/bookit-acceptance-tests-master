@@ -26,14 +26,18 @@ public class SignInPage {
         public WebElement signIn;
 
 
-        public void login(String email, String password){
-            this.email.sendKeys(email);
-            this.password.sendKeys(password);
-            signIn.click();
+        public static String currentUserEmail;
 
-            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 5);
-            wait.until(ExpectedConditions.urlContains("map"));
 
-        }
+    public void login(String email, String password){
+        currentUserEmail = email;
+        this.email.sendKeys(email);
+        this.password.sendKeys(password);
+        signIn.click();
+
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 5);
+        wait.until(ExpectedConditions.urlContains("map"));
+
+    }
     }
 
